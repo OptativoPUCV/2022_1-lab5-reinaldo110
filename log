@@ -127,3 +127,31 @@ Sat Apr 23 04:44:32 UTC 2022:
  tests:  15|4
 total_score: 25/70
 f71ae4a
+Sun Apr 24 08:30:51 UTC 2022: 
+ treemap.c | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 178 insertions(+)
+In file included from test.c:4:0:
+treemap.c:267:8: error: ‘nextTreeMap’ defined but not used [-Werror=unused-function]
+ Pair * nextTreeMap(TreeMap * tree) {
+        ^~~~~~~~~~~
+treemap.c:263:8: error: ‘firstTreeMap’ defined but not used [-Werror=unused-function]
+ Pair * firstTreeMap(TreeMap * tree) {
+        ^~~~~~~~~~~~
+treemap.c:259:8: error: ‘upperBound’ defined but not used [-Werror=unused-function]
+ Pair * upperBound(TreeMap * tree, void* key) {
+        ^~~~~~~~~~
+treemap.c:236:8: error: ‘searchTreeMap’ defined but not used [-Werror=unused-function]
+ Pair * searchTreeMap(TreeMap * tree, void* key) {
+        ^~~~~~~~~~~~~
+treemap.c:224:6: error: ‘eraseTreeMap’ defined but not used [-Werror=unused-function]
+ void eraseTreeMap(TreeMap * tree, void* key){
+      ^~~~~~~~~~~~
+treemap.c:139:6: error: ‘insertTreeMap’ defined but not used [-Werror=unused-function]
+ void insertTreeMap(TreeMap * tree, void* key, void * value) {
+      ^~~~~~~~~~~~~
+treemap.c:130:11: error: ‘createTreeMap’ defined but not used [-Werror=unused-function]
+ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
+           ^~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+34938cf
