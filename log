@@ -155,3 +155,9 @@ treemap.c:130:11: error: ‘createTreeMap’ defined but not used [-Werror=unuse
 cc1: all warnings being treated as errors
 Compilation failed
 34938cf
+Sun Apr 24 08:31:00 UTC 2022: 
+ treemap.c | 140 --------------------------------------------------------------
+ 1 file changed, 140 deletions(-)
+ tests:  18|3
+total_score: 40/70
+e5031b3
