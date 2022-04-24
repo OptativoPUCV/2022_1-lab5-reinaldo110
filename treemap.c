@@ -28,7 +28,7 @@ int is_equal(TreeMap* tree, void* key1, void* key2){
 
 TreeNode * createTreeNode(void* key, void * value) {
     TreeNode * new = (TreeNode *)malloc(sizeof(TreeNode));
-    if (new == NULL) return NULL;
+    if(new == NULL) return NULL;
     new->pair = (Pair *)malloc(sizeof(Pair));
     new->pair->key = key;
     new->pair->value = value;
@@ -82,7 +82,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
 }
 
 TreeNode * minimum(TreeNode * x){
-    while (x->left != NULL)
+    while(x->left != NULL)
         x = x->left;
     return x;
 }
@@ -131,9 +131,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
-    if (tree == NULL || tree->root == NULL) return;
+    if(tree == NULL || tree->root == NULL) return;
 
-    if (searchTreeMap(tree, key) == NULL) return;
+    if(searchTreeMap(tree, key) == NULL) return;
     TreeNode* node = tree->current;
     removeNode(tree, node);
 
@@ -143,30 +143,41 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
-    if (tree == NULL) return NULL;
+    if(tree == NULL) return NULL;
     TreeNode *aux = tree->root;
 
-    while (aux != NULL) {
+    while(aux != NULL) {
         tree->current = aux;
-        if (tree->lower_than(aux->pair->key, key) == 1) 
+        if(tree->lower_than(aux->pair->key, key) == 1) 
         {
             aux = aux->right;
         }
-        else if (tree->lower_than(key, aux->pair->key) == 1) 
+        else if(tree->lower_than(key, aux->pair->key) == 1) 
         {
             aux = aux->left;
         }
         else break;
     }
 
-    if (aux == NULL) return NULL;
+    if(aux == NULL) return NULL;
     tree->current = aux;
     
     return aux->pair;
 } 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    return NULL;
+    if(tree == NULL) return NULL;
+    Pair *aux = searchTreeMap(tree, key);
+    if(aux == NULL)
+    {
+        if(tree->lower_than(key, tree->current->pair->key))
+        {
+            return tree->current->pair;
+        }
+        aux = nextTreeMap(tree);
+    }
+    
+    return aux;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
